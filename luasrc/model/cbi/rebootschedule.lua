@@ -1,7 +1,7 @@
 m=Map("rebootschedule",translate("定时任务设置"),
-translate("让计划任务更加易用的插件，可以使用-表示连续的时间范围，使用,表示不连续的多个时间点，使用*/表示循环执行。可以使用“添加”来添加多条计划任务命令。可使用“--自定义--”来自行添加其它参数。</br></br>") ..
-translate("* 所有时间参数都是指该自然单位中的时间点，而非累积计数，比如星期只能是0～6，小时只能是0～23，分钟只能是0～59，不能使用48小时、80分钟这种累积计数表示法。</br>") ..
-translate("* 所有数值可使用 - 连接表示连续范围，比如星期：1-5 表示星期一至星期五；使用,表示不连续的点，比如星期：1,3,5 表示仅仅星期一、三、五。") ..
+"A plugin that makes scheduled tasks easier to use. You can use '-' to indicate a continuous time range, use ',' to indicate multiple time points, and use */ to indicate loop execution. You can use 'Add' to add multiple scheduled task commands. Additional parameters can be added '--custom--'.</br></br>" ..
+"* All time parameters refer to the time point in the natural unit, not the cumulative count. For example, the week can only be 0 to 6, the hour can only be 0 to 23, the minute can only be 0 to 59.</br>" ..
+"* All values can use '-' for a continuous range. Such as week: 1-5 means Monday to Friday; Use ',' for individual time points. For a week: 1,3,5 means only Monday, Wednesday, and Friday." ..
 translate("&nbsp;&nbsp;&nbsp;<input class=\"cbi-button cbi-button-apply\" type=\"button\" value=\"" ..
 translate("查看/验证") ..
 " \" onclick=\"window.open('http://www.cronmaker.com/?1')\"/>")
