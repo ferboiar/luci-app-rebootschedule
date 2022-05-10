@@ -19,7 +19,7 @@ p.rmempty = false
 p.default=0
 
 
-week=s:option(Value,"week","Day of the week (0～6)","<font color=\"gray\"></font>")
+week=s:option(Value,"week","Day of the week (0～6)","<font color=\"gray\">0 means Sunday,</br>6 means Saturday</font>")
 week.rmempty = true
 week:value('*',translate("每天"))
 week:value(0,"Sunday")
@@ -32,27 +32,27 @@ week:value(6,"Saturday")
 week.default='*'
 
 
-hour=s:option(Value,"hour","Hour (0～23)","<font color=\"gray\">* means every hour, */n means every n hours</font>")
+hour=s:option(Value,"hour","Hour (0～23)","<font color=\"gray\">* means every hour,</br>*/n means every n hours</font>")
 hour.rmempty = false
 hour.default = '5'
 
-minute=s:option(Value,"minute","Minute (0～59)","<font color=\"gray\">* means every minute, */n means every n minutes</font>")
+minute=s:option(Value,"minute","Minute (0～59)","<font color=\"gray\">* means every minute,</br>*/n means every n minutes</font>")
 minute.rmempty = false
 minute.default = '0'
 
 command=s:option(Value,"command","Command (&& concatenate)","<font color=\"gray\">Select '--custom--' to modify</br>(you can also add it to the scheduled task to modify)</font>")
-command:value('sync && echo 3 > /proc/sys/vm/drop_caches', "A.Free memory")
-command:value('sysfree.sh',"B.Clean up trash")
-command:value('sleep 5 && touch /etc/banner && reboot',"C.Reboot")
-command:value('poweroff',"D.Power off")
-command:value('/etc/init.d/ksmdb restart &&/etc/init.d/samba restart &&/etc/init.d/samba4 restart',"E.Restart SMB/Samba")
-command:value('/etc/init.d/network restart',"F.Restart network")
-command:value('ifdown wan && ifup wan',"G.Restart WAN interface")
-command:value('killall -q pppd && sleep 5 && pppd file /tmp/ppp/options.wan', "H.Redial (pppd)")
-command:value('ifdown wan',"I.Turn off WAN")
-command:value('ifup wan',"J.Turn on WAN")
-command:value('wifi down',"K.Turn off WiFi")
-command:value('wifi up',"L.Turn on WiFi")
+command:value('sync && echo 3 > /proc/sys/vm/drop_caches', "A. Free memory")
+command:value('sysfree.sh',"B. Clean up trash")
+command:value('sleep 5 && touch /etc/banner && reboot',"C. Reboot")
+command:value('poweroff',"D. Power off")
+command:value('/etc/init.d/ksmdb restart &&/etc/init.d/samba restart &&/etc/init.d/samba4 restart',"E. Restart SMB/Samba")
+command:value('/etc/init.d/network restart',"F. Restart network")
+command:value('ifdown wan && ifup wan',"G. Restart WAN interface")
+command:value('killall -q pppd && sleep 5 && pppd file /tmp/ppp/options.wan', "H. Redial (pppd)")
+command:value('ifdown wan',"I. Turn off WAN")
+command:value('ifup wan',"J. Turn on WAN")
+command:value('wifi down',"K. Turn off WiFi")
+command:value('wifi up',"L. Turn on WiFi")
 command.default='sleep 5 && touch /etc/banner && reboot'
 
 local e=luci.http.formvalue("cbi.apply")
