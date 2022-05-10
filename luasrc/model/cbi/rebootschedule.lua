@@ -19,44 +19,40 @@ p.rmempty = false
 p.default=0
 
 
-week=s:option(Value,"week",translate("Day of the week (0～6)"),
-translate("<font color=\"gray\"></font>"))
+week=s:option(Value,"week","Day of the week (0～6)","<font color=\"gray\"></font>")
 week.rmempty = true
 week:value('*',translate("每天"))
-week:value(0,translate("Sunday"))
-week:value(1,translate("Monday"))
-week:value(2,translate("Tuesday"))
-week:value(3,translate("Wednesday"))
-week:value(4,translate("Thursday"))
-week:value(5,translate("Friday"))
-week:value(6,translate("Saturday"))
+week:value(0,"Sunday")
+week:value(1,"Monday")
+week:value(2,"Tuesday")
+week:value(3,"Wednesday")
+week:value(4,"Thursday")
+week:value(5,"Friday")
+week:value(6,"Saturday")
 week.default='*'
 
 
-hour=s:option(Value,"hour",translate("Hour (0～23)"),
-translate("<font color=\"gray\">* means every hour, */n means every n hours</font>"))
+hour=s:option(Value,"hour","Hour (0～23)","<font color=\"gray\">* means every hour, */n means every n hours</font>")
 hour.rmempty = false
 hour.default = '5'
 
-minute=s:option(Value,"minute",translate("Minute (0～59)"),
-translate("<font color=\"gray\">* means every minute, */n means every n minutes</font>"))
+minute=s:option(Value,"minute","Minute (0～59)","<font color=\"gray\">* means every minute, */n means every n minutes</font>")
 minute.rmempty = false
 minute.default = '0'
 
-command=s:option(Value,"command",translate("Command (&& concatenate)"),
-translate("<font color=\"gray\">Select "--custom--" to modify</br>(you can also add it to the scheduled task to modify)</font>"))
-command:value('sync && echo 3 > /proc/sys/vm/drop_caches', translate("A.Free memory"))
-command:value('sysfree.sh',translate("B.Clean up trash"))
-command:value('sleep 5 && touch /etc/banner && reboot',translate("C.Reboot"))
-command:value('poweroff',translate("D.Power off"))
-command:value('/etc/init.d/ksmdb restart &&/etc/init.d/samba restart &&/etc/init.d/samba4 restart',translate("E.Restart SMB/Samba"))
-command:value('/etc/init.d/network restart',translate("F.Restart network"))
-command:value('ifdown wan && ifup wan',translate("G.Restart WAN interface"))
-command:value('killall -q pppd && sleep 5 && pppd file /tmp/ppp/options.wan', translate("H.Redial (pppd)"))
-command:value('ifdown wan',translate("I.Turn off WAN"))
-command:value('ifup wan',translate("J.Turn on WAN"))
-command:value('wifi down',translate("K.Turn off WiFi"))
-command:value('wifi up',translate("L.Turn on WiFi"))
+command=s:option(Value,"command","Command (&& concatenate)","<font color=\"gray\">Select '--custom--' to modify</br>(you can also add it to the scheduled task to modify)</font>")
+command:value('sync && echo 3 > /proc/sys/vm/drop_caches', "A.Free memory")
+command:value('sysfree.sh',"B.Clean up trash")
+command:value('sleep 5 && touch /etc/banner && reboot',"C.Reboot")
+command:value('poweroff',"D.Power off")
+command:value('/etc/init.d/ksmdb restart &&/etc/init.d/samba restart &&/etc/init.d/samba4 restart',"E.Restart SMB/Samba")
+command:value('/etc/init.d/network restart',"F.Restart network")
+command:value('ifdown wan && ifup wan',"G.Restart WAN interface")
+command:value('killall -q pppd && sleep 5 && pppd file /tmp/ppp/options.wan', "H.Redial (pppd)")
+command:value('ifdown wan',"I.Turn off WAN")
+command:value('ifup wan',"J.Turn on WAN")
+command:value('wifi down',"K.Turn off WiFi")
+command:value('wifi up',"L.Turn on WiFi")
 command.default='sleep 5 && touch /etc/banner && reboot'
 
 local e=luci.http.formvalue("cbi.apply")
